@@ -1,0 +1,29 @@
+{
+  "name": "xns",
+  "version": "1.0.0",
+  "description": "Execute a JavaScript function",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0;"
+  },
+  "bin": {
+    "xns-js": "./index.js",
+    "xns": "./start.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonnyburger/xns.git"
+  },
+  "keywords": [
+    "execute",
+    "node",
+    "script",
+    "cli"
+  ],
+  "author": "Jonny Burger <jonny.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jonnyburger/xns/issues"
+  },
+  "homepage": "https://github.com/Jonnyburger/xns#readme"
+}
