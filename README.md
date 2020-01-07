@@ -6,15 +6,16 @@ xns stands for e**X**ecute **N**ode **S**cript!
 
 ## Problem
 
-Let's say you have written a cool JavaScript function!
+Let's say you have written a cool JavaScript (or TypeScript) function!
 
 `get-bitcoin-price.ts`:
 ```js
 import got from 'got';
 
 export default async (): Promise<string> => {
-	const res = await got('https://increment.build/jonnys-coffees');
-	return `1 Bitcoin is worth ${currency} ${amount}`;
+  const res = await got('https://api.coinbase.com/v2/prices/spot');
+  const {currency, amount} = JSON.parse(res.body).data;
+  return `1 Bitcoin is worth ${currency} ${amount}`;
 };
 ```
 
@@ -33,9 +34,9 @@ import xns from 'xns';
 import got from 'got';
 
 export default xns(async (): Promise<string> => {
-	const res = await got('https://api.coinbase.com/v2/prices/spot');
-	const {currency, amount} = JSON.parse(res.body).data;
-	return `1 Bitcoin is worth ${currency} ${amount}`;
+  const res = await got('https://api.coinbase.com/v2/prices/spot');
+  const {currency, amount} = JSON.parse(res.body).data;
+  return `1 Bitcoin is worth ${currency} ${amount}`;
 });
 ```
 
