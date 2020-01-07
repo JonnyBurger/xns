@@ -19,7 +19,7 @@ const compareWithoutExtension = (path1: string, path2: string) => {
   return removeExtensionOfPath(path1) === removeExtensionOfPath(path2);
 };
 
-export default <T extends fArgReturn>(fn: T): T => {
+export const xns = <T extends fArgReturn>(fn: T): T => {
   const line = getInvocationLocationFromFile(Error().stack as string);
   if (!line) {
     return fn;
@@ -31,9 +31,10 @@ export default <T extends fArgReturn>(fn: T): T => {
         process.exit(0);
       })
       .catch(err => {
-        console.log(err);
+        console.error(err);
         process.exit(1);
       });
   }
   return fn;
 };
+export default xns;
