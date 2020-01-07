@@ -30,6 +30,7 @@ export const xns = <T extends fArgReturn>(fn: T): T => {
         if (typeof output !== "undefined") {
           console.log(output);
         }
+        process.exit(0);
       })
       .catch(err => {
         console.error(err);
