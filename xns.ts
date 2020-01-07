@@ -27,7 +27,9 @@ export const xns = <T extends fArgReturn>(fn: T): T => {
   if (compareWithoutExtension(process.argv[1], line)) {
     Promise.resolve(fn())
       .then(output => {
-        console.log(output);
+        if (typeof output !== "undefined") {
+          console.log(output);
+        }
         process.exit(0);
       })
       .catch(err => {
