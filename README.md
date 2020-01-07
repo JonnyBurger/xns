@@ -8,14 +8,12 @@ xns stands for e**X**ecute **N**ode **S**cript!
 
 Let's say you have written a cool JavaScript function!
 
+`get-bitcoin-price.ts`:
 ```js
-// get-bitcoin-price.js
-
 import got from 'got';
 
-export default async () => {
-	const res = await got('https://api.coinbase.com/v2/prices/spot');
-	const {currency, amount} = JSON.parse(res.body).data;
+export default async (): Promise<string> => {
+	const res = await got('https://increment.build/jonnys-coffees');
 	return `1 Bitcoin is worth ${currency} ${amount}`;
 };
 ```
@@ -27,15 +25,14 @@ Current options are not ideal:
 
 ## Solution
 
-Simply wrap your function in `xns()`:
+Wrap your function in `xns()`:
 
+`get-bitcoin-price.ts`:
 ```js
-// get-bitcoin-price.js
-
 import xns from 'xns';
 import got from 'got';
 
-export default async xns(() => {
+export default xns(async (): Promise<string> => {
 	const res = await got('https://api.coinbase.com/v2/prices/spot');
 	const {currency, amount} = JSON.parse(res.body).data;
 	return `1 Bitcoin is worth ${currency} ${amount}`;
@@ -45,7 +42,7 @@ export default async xns(() => {
 Now you can execute the function from your terminal:
 
 ```sh
-node get-bitcoin-price.js
+ts-node get-bitcoin-price
 1 Bitcoin is worth USD 7767.655
 ```
 

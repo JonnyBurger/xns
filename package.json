@@ -9,7 +9,9 @@
   },
   "files": [
     "xns.js",
-    "xns.d.ts"
+    "xns.d.ts",
+    "index.js",
+    "start.sh"
   ],
   "bin": {
     "xns-js": "./index.js",
@@ -29,6 +31,8 @@
   },
   "homepage": "https://github.com/Jonnyburger/xns#readme",
   "dependencies": {
+  },
+  "devDependencies": {
     "@types/node": "^13.1.4",
     "typescript": "^3.7.4"
   }
