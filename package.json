@@ -1,11 +1,16 @@
 {
   "name": "xns",
-  "version": "1.0.2",
+  "version": "2.0.0-alpha.2",
   "description": "Execute a JavaScript function",
-  "main": "index.js",
+  "main": "xns.js",
   "scripts": {
-    "test": "exit 0;"
+    "test": "exit 0;",
+    "prepublish": "tsc"
   },
+  "files": [
+    "xns.js",
+    "xns.d.ts"
+  ],
   "bin": {
     "xns-js": "./index.js",
     "xns": "./start.sh"
@@ -22,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/Jonnyburger/xns/issues"
   },
-  "homepage": "https://github.com/Jonnyburger/xns#readme"
+  "homepage": "https://github.com/Jonnyburger/xns#readme",
+  "dependencies": {
+    "@types/node": "^13.1.4",
+    "typescript": "^3.7.4"
+  }
 }
